@@ -1,0 +1,137 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form2</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/form2.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success me-3" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div> -->
+  <div class="container container-form">
+    <div class="row d-flex align-items-center justify-content-center flex-column">
+      <div class="col-md-8 col-lg-6 col-10 col-xxl-4 col-xs-12">
+        <div class="card">
+          <div class="card-body">
+            <form class="mt-4" action="#" method="POST" target="">
+              {% csrf_token %}
+
+              {% for message in messages %}
+              <div class="container-fluid p-0">
+                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="True">&times;</span>
+                  </button>
+                  {{ message }}
+                </div>
+              </div>
+              {% endfor %}
+
+              <div class="login">
+                <div class="d-flex align-items-center justify-content-center flex-column"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="currentColor"
+                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                  </svg>
+                </div>
+
+                <h3 class="text-center mt-1">Login here</h3>
+                <div class="my-4">
+                  <!-- <label for="exampleInputusername1" class="form-label">Username</label> -->
+                  <input type="username" class="form-control form-control1" name="phone" id="phone"
+                    aria-describedby="usernameHelp" placeholder="Enter your phone number" required>
+                </div>
+
+                <div class="mb-3">
+                  <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                  <input type="password" class="form-control form-control1 password" name="password" id="password"
+                    placeholder="Enter your password" required>
+                  <span class="eye1 ms-2">
+                    <a href="#" class="eye"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                        fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                        <path
+                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                        <path
+                          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                      </svg></a>
+                  </span>
+                </div>
+
+                <b>
+
+                  <div class="mb-4 form-check">
+                    <span><input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Remember me</label></span>
+                    <span class="forgot">
+                      <a href="">Forgot Password ?</a>
+                    </span>
+                  </div>
+                </b>
+                <div class="my-3">
+                  <button type="submit" class="btn btn-primary w-100" value="submit">Login</button>
+                </div>
+                <div class="my-3 mt-4 text-center">
+                  &mdash; Doesn't Have an Account &mdash;<span><a href="/" target="_blank">CLick here</a></span>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/form2.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Montserrat:wght@300;500&display=swap"
+    rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/activity_replit.css' %}">
+</head>
+
+<body>
+
+  <!--Navbar-->
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2">
+      <div class="container-fluid">
+        <a class="navbar-brand text-uppercase nav1" href="/homepage">Home</a>
+        <a class="navbar-brand text-uppercase ms-5" href="/about">About</a>
+        <a class="navbar-brand text-uppercase ms-5" href="/pd">Admin</a>
+        <a class="navbar-brand text-uppercase ms-5" href="/contact">Contact Us</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </div>
+      </div>
+    </nav>
+    <!--end of navbar-->
+
+  </div>
+  <form class="mt-4" action="" method="POST">
+    {% csrf_token %}
+
+    <!--Farmer Activity-->
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-md-6 col-lg-6 col-xxl-6 col-10">
+          <div class="card" style="height: 85vh;">
+            <div class="card-body">
+              <h5 class="card-title mb-4">Farmer Activity</h5>
+
+              <div class="wname label_text">
+                Enter name of Activity:
+                <input type="text" class="form-control mt-2" name="activity_name"><br>
+              </div>
+
+              <div class="sdate label_text">
+                Enter Start Date :
+                <input type="date" class="form-control mt-2" name="start_date"><br>
+              </div>
+
+              <div class="edate label_text">
+                Enter End Date :
+                <input type="date" class="form-control mt-2" name="end_date"><br>
+              </div>
+
+              <div class="proof label_text">
+                Upload Proof :
+                <input type="file" accept="image/*" class="input-box form-control mt-2" placeholder="Image"
+                  name="activity_proof"><br>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <!--Farmer Details-->
+        <div class="col-md-6 col-lg-6 col-xxl-6 col-10">
+          <div class="card" style="height: 85vh;">
+            <div class="card-body">
+              <h5 class="card-title mb-4">Worker Details</h5>
+
+
+              <div class="wno label_text">
+                Enter No. of Workers :
+                <input type="text" class="input-box form-control mt-2" name="worker_name"><br>
+              </div>
+
+              <div class="wname label_text">
+                Worker Duration(in hrs.):
+                <input type="text" class="input-box form-control mt-2" name="duration"><br>
+              </div>
+
+              <div class="wagespayable label_text">
+                Wages Payable:
+                <input type="text" class="input-box form-control mt-2" name="amount_payable"><br>
+              </div>
+              <div class="wagespaid label_text">
+                Wages paid:
+                <input type="text" class="input-box form-control mt-2" name="amount_paid"><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Asset-->
+      <div class="row my-5">
+        <div class="col-md-6 col-lg-6 col-xxl-6 col-10 my-5">
+          <div class="card" style="height: 70vh;">
+
+            <div class="card-body">
+              <h5 class="card-title mb-4">Assets</h5>
+
+              <div class="asset_data label_text">
+                Handler of the Asset
+                <input type="name" class="input-box form-control mt-2" name="driver"><br>
+              </div>
+
+              <div class="asset_data label_text">
+                Asset Duration:
+                <input type="number" class="input-box form-control mt-2" name="asset_duration"><br>
+              </div>
+
+              <div class="asset_usage label_text">
+                Wages Payable:
+                <input type="text" class="input-box form-control mt-2" name="rent_amount"><br>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Material Consumed-->
+        <div class="col-md-6 col-lg-6 col-xxl-6 col-10 my-5">
+          <div class="card" style="height: 70vh;">
+            <div class="card-body">
+              <h5 class="card-title mb-4">Materials Consumed</h5>
+
+              <div class="asset_driver label_text">
+                amount
+                <input type="number" class="input-box form-control mt-2" name="amount"><br>
+
+                <div class="cost_material_consume label_text">
+                  Total bill:
+                  <input type="text" class="input-box form-control mt-2" name="bill"><br>
+                </div>
+                <div class="P_reciept label_text">
+                  Upload any Proof of Material(Receipt etc.):
+                  <input type="file" class="input-box form-control mt-2" name="material"><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Material Produced-->
+      <div class="row my-5">
+        <div class="col-md-6 col-lg-6 col-xxl-6 col-10 my-3">
+          <div class="card" style="height: 90vh;">
+            <div class="card-body">
+              <h5 class="card-title mb-4">Materials Produced</h5>
+
+              <div class="mat_pro label_text">
+                Material Produced :
+                <input type="text" class="input-box form-control mt-2" name="type_material"><br>
+              </div>
+
+              <div class="Unit_Pro label_text">
+                Units Produced :
+                <input type="text" class="input-box form-control mt-2" name="units"><br>
+              </div>
+
+              <div class="stored label_text">
+                Stored In :
+                <input type="text" class="input-box form-control mt-2" name="storage_location"><br>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!--Further Details-->
+        <div class="col-md-6 col-lg-6 col-xxl-6 col-10 my-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title mb-4">Further Details</h5>
+
+              <div class="mat_pro label_text">
+                Location latitude:
+                <input type="number" class="input-box form-control mt-2" name="loc_lat"><br>
+              </div>
+              <div class="mat_pro label_text">
+                Location longitude:
+                <input type="number" class="input-box form-control mt-2" name="loc_long"><br>
+              </div>
+              <div class="mat_pro label_text">
+                Address:
+                <input type="text" class="input-box form-control mt-2" name="address"><br>
+              </div>
+              <div class="mat_pro label_text">
+                land size:
+                <input type="number" class="input-box form-control mt-2" name="land_size"><br>
+              </div>
+
+              <div class="Unit_Pro label_text">
+                Number of seedlings:
+                <input type="text" class="input-box form-control mt-2" name="number_seedling"><br>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--submit-->
+      <div class="mb-5 d-flex align-items-center justify-content-center flex-column">
+        <button type="submit" class="btn btn-primary w-75">Submit</button>
+      </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
